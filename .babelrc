@@ -1,0 +1,16 @@
+/*
+Gerardo Pérez Pérez
+<gerard2perez@outlook.com>
+Learning Resource from platzi
+
+File: .babelrc
+Created:  2022-05-21T22:46:31.233Z
+Modified: 2022-05-21T22:47:00.040Z
+*/
+
+{
+    "presets": [
+        "@babel/preset-env", 
+        "@babel/preset-react",
+    ]
+}
