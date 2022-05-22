@@ -5,45 +5,23 @@ Learning Resource from platzi
 
 File: index.js
 Created:  2022-05-22T02:53:20.673Z
-Modified: 2022-05-22T17:38:16.229Z
+Modified: 2022-05-22T18:00:35.905Z
 */
 
-import React, { useEffect, useRef, useState } from 'react'
+import React from 'react'
 import { MdFavorite, MdFavoriteBorder } from 'react-icons/md'
+import { useLocalStorage } from '../../hooks/useLocalStorage'
+import { useOnScreen } from '../../hooks/useOnScreen'
 import { Article, Button, Img, ImgWrapper } from './styles'
 const DEFAULT_IMAGE = 'https://res.cloudinary.com/midudev/image/upload/w_300/q_80/v1560262103/dogs.png'
-export const PhotoCard = ({id, likes = 0, src = DEFAULT_IMAGE}) => {
-  const element = useRef(null)
-  const [show, setShow] = useState(false)
+
+export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
+  const { show, element } = useOnScreen()
+
   const key = `liked-${id}`
-  const [liked, setLiked] = useState(()=>{
-    try{
-    const like = window.localStorage.getItem(key)
-    return like
-    }catch(e) {
-      console.error(e)
-    }
-  })
-  useEffect(()=>{
-    const observer = new window.IntersectionObserver(function(entries) {
-      const { isIntersecting } = entries[0]
-      if(isIntersecting) {
-        console.log(isIntersecting)
-        setShow(true)
-        observer.disconnect()
-      }
-    })
-    observer.observe(element.current)
-  }, [element])
+  const [liked, setLiked] = useLocalStorage(key, false)
   const Icon = liked ? MdFavorite : MdFavoriteBorder
-  const handleLiked = (liked) =>{
-    try {
-      window.localStorage.setItem(key, liked)
-    } catch(e) {
-      console.error(e)
-    }
-    setLiked(liked)
-  }
+
   return (
     <Article ref={element}>
       {show && <>
@@ -52,7 +30,7 @@ export const PhotoCard = ({id, likes = 0, src = DEFAULT_IMAGE}) => {
             <Img src={src}/>
           </ImgWrapper>
         </a>
-        <Button onClick={()=>handleLiked(!liked)}>
+        <Button onClick={() => setLiked(!liked)}>
           <Icon size='32px'/> {likes} likes!
         </Button>
       </>}

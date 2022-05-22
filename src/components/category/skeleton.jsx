@@ -5,13 +5,13 @@ Learning Resource from platzi
 
 File: skeleton.jsx
 Created:  2022-05-22T16:26:45.245Z
-Modified: 2022-05-22T16:56:09.069Z
+Modified: 2022-05-22T17:58:03.238Z
 */
 
-import { DecorateImage, Skeleton } from "./styles"
+import { DecorateImage, Skeleton } from './styles'
 
 export const SkeletonCategory = () => {
-  return<DecorateImage>
+  return <DecorateImage>
     <Skeleton>
       <div></div>
       <div></div>
