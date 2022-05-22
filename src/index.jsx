@@ -5,12 +5,24 @@ Learning Resource from platzi
 
 File: index.js
 Created:  2022-05-21T22:28:19.797Z
-Modified: 2022-05-22T02:02:43.196Z
+Modified: 2022-05-22T18:12:13.594Z
 */
+import {
+  ApolloClient, ApolloProvider, InMemoryCache
+} from '@apollo/client'
 import { createRoot } from 'react-dom/client'
 import { App } from './App'
+
+const client = new ApolloClient({
+  uri: 'https://petgram-server-g2p.vercel.app/graphql',
+  cache: new InMemoryCache()
+})
 
 const container = document.getElementById('app')
 const root = createRoot(container)
 
-root.render(<App/>)
+root.render(
+  <ApolloProvider client={client}>
+    <App/>
+  </ApolloProvider>
+)
