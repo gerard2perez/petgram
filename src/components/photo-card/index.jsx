@@ -5,23 +5,27 @@ Learning Resource from platzi
 
 File: index.js
 Created:  2022-05-22T02:53:20.673Z
-Modified: 2022-05-22T19:05:30.868Z
+Modified: 2022-05-22T19:40:42.111Z
 */
 
+import { useMutation } from '@apollo/client'
 import React from 'react'
-import { MdFavorite, MdFavoriteBorder } from 'react-icons/md'
 import { useLocalStorage } from '../../hooks/useLocalStorage'
 import { useOnScreen } from '../../hooks/useOnScreen'
-import { Article, Button, Img, ImgWrapper } from './styles'
+import { LIKE_ANONYMOUS_PHOTO } from '../../queries/like-anonymous-photo'
+import { FavButton } from '../fav-button'
+import { Article, Img, ImgWrapper } from './styles'
 const DEFAULT_IMAGE = 'https://res.cloudinary.com/midudev/image/upload/w_300/q_80/v1560262103/dogs.png'
 
 export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
   const { show, element } = useOnScreen()
-
+  const [toggleLike] = useMutation(LIKE_ANONYMOUS_PHOTO)
   const key = `liked-${id}`
   const [liked, setLiked] = useLocalStorage(key, false)
-  const Icon = liked ? MdFavorite : MdFavoriteBorder
-
+  const handleFavClick = () => {
+    !liked && toggleLike({ variables: { input: { id } } })
+    setLiked(!liked)
+  }
   return (
     <Article ref={element}>
       {show && <>
@@ -30,9 +34,7 @@ export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
             <Img src={src}/>
           </ImgWrapper>
         </a>
-        <Button onClick={() => setLiked(!liked)}>
-          <Icon size='32px'/> {likes} likes!
-        </Button>
+        <FavButton onClick={handleFavClick} likes={likes} liked={liked} />
       </>}
 
     </Article>
