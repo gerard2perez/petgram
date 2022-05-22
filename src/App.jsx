@@ -5,9 +5,13 @@ Learning Resource from platzi
 
 File: App.jsx
 Created:  2022-05-22T01:17:40.610Z
-Modified: 2022-05-22T01:41:33.220Z
+Modified: 2022-05-22T02:04:30.879Z
 */
-import { Category } from './components/category'
+import { ListOfCategories } from './components/list-of-categories'
+import { GlobalStyle } from './GlobalStyles'
 export const App = () => (
-  <Category/>
+  <>
+    <GlobalStyle/>
+    <ListOfCategories/>
+  </>
 )
