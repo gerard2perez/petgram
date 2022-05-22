@@ -5,7 +5,7 @@ Learning Resource from platzi
 
 File: index.js
 Created:  2022-05-22T01:55:05.818Z
-Modified: 2022-05-22T17:57:56.770Z
+Modified: 2022-05-22T20:02:27.344Z
 */
 
 import React, { useEffect, useState } from 'react'
@@ -43,7 +43,7 @@ export const ListOfCategories = () => {
       {loading
         ? [1, 2, 3, 4].map(id => (<Item key={id}><SkeletonCategory/></Item>))
         : categories.map((category) => (
-        <Item key={category.id}><Category {...category} /></Item>
+        <Item key={category.id}><Category {...category} path={`/pets/${category.id}`} /></Item>
         ))}
     </List>
   }

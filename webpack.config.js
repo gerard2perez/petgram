@@ -1,16 +1,17 @@
 // webpack.config.js
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const webpack = require('webpack');
+const webpack = require('webpack')
 
 module.exports = {
   mode: 'development',
-  devtool : 'inline-source-map',
+  devtool: 'inline-source-map',
   entry: './src/index.jsx',
   output: {
-    filename: 'app.bundle.js'
+    filename: 'app.bundle.js',
+    publicPath: '/'
   },
-  resolve:{
-    extensions:['.js', '.jsx'],
+  resolve: {
+    extensions: ['.js', '.jsx']
   },
   module: {
     rules: [
@@ -24,14 +25,14 @@ module.exports = {
   },
   plugins: [
     new webpack.ProvidePlugin({
-      'React': 'react'
+      React: 'react'
     }),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
       filename: 'index.html'
     })
   ],
-  devServer : {
+  devServer: {
     historyApiFallback: true,
     compress: true
   }
