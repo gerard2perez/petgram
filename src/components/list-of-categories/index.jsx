@@ -5,7 +5,7 @@ Learning Resource from platzi
 
 File: index.js
 Created:  2022-05-22T01:55:05.818Z
-Modified: 2022-05-22T16:41:36.326Z
+Modified: 2022-05-22T17:15:21.454Z
 */
 
 import React, { useEffect, useState } from 'react'
@@ -34,7 +34,6 @@ export const ListOfCategories = () => {
     const onScroll = e => {
       const newShowFixed = window.scrollY > 150
       showFixed !== newShowFixed && setShowFixed(newShowFixed)
-      console.log(`fixed: ${showFixed}`, window.scrollY)
     }
     document.addEventListener('scroll', onScroll)
     return () => document.removeEventListener('scroll', onScroll)

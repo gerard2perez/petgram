@@ -5,7 +5,7 @@ Learning Resource from platzi
 
 File: styles.js
 Created:  2022-05-22T01:58:17.668Z
-Modified: 2022-05-22T16:03:38.670Z
+Modified: 2022-05-22T17:22:44.458Z
 */
 
 import styled, { css } from 'styled-components'
