@@ -1,5 +1,5 @@
 // webpack.config.js
-const HtmlWebpackPlugin = require("html-webpack-plugin")
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   mode: 'development',
@@ -12,16 +12,16 @@ module.exports = {
       {
         test: /\.jsx?$/,
         use: {
-          loader: 'babel-loader',
+          loader: 'babel-loader'
         }
       }
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'public/index.html',
+      template: 'src/index.html',
       filename: 'index.html'
     })
-  ],
-  
+  ]
+
 }
