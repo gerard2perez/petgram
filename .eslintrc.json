@@ -17,5 +17,7 @@
   "plugins": [
     "react"
   ],
-  "rules": {}
+  "rules": {
+    "react/react-in-jsx-scope": "never"
+  }
 }

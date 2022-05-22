@@ -5,12 +5,14 @@ Learning Resource from platzi
 
 File: .babelrc
 Created:  2022-05-21T22:46:31.233Z
-Modified: 2022-05-21T22:47:00.040Z
+Modified: 2022-05-22T01:31:26.235Z
 */
-
 {
-    "presets": [
-        "@babel/preset-env", 
-        "@babel/preset-react",
-    ]
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react",
+  ],
+  "plugins": [
+    "@babel/plugin-transform-runtime"
+  ]
 }
