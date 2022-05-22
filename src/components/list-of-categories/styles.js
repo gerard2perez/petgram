@@ -5,10 +5,10 @@ Learning Resource from platzi
 
 File: styles.js
 Created:  2022-05-22T01:58:17.668Z
-Modified: 2022-05-22T15:40:14.923Z
+Modified: 2022-05-22T16:03:38.670Z
 */
 
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { slideFromTop } from '../../styles/animation'
 export const List = styled.ul`
   display: flex;
@@ -19,7 +19,8 @@ export const List = styled.ul`
   z-index: 10;
   background: white;
   padding-bottom: 10px;
-  &.fixed {
+  ${props => props.fixed && css`
+  {
     background: white;
     border-radius: 60px;
     box-shadow: 0 0 20px rgba(0,0,0,0.3);
@@ -32,6 +33,7 @@ export const List = styled.ul`
     padding: 8px 10px;
     ${slideFromTop({time: '300ms', type: 'ease-out'})}
   }
+  `}
 `
 export const Item = styled.li`
   padding: 0 8px;

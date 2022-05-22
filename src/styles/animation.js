@@ -5,7 +5,7 @@ Learning Resource from platzi
 
 File: animation.js
 Created:  2022-05-22T03:38:17.847Z
-Modified: 2022-05-22T15:33:57.918Z
+Modified: 2022-05-22T16:36:58.898Z
 */
 
 import { css, keyframes } from 'styled-components'
@@ -42,3 +42,37 @@ const slideFromTopKeyFrames = keyframes`
   }
 `
 export const slideFromTop = ({time = '1s', type = 'ease'} = {}) => css` animation: ${time} ${slideFromTopKeyFrames} ${type};`
+
+
+const rippleKeyFrames = keyframes`
+  0% {
+    top: 36px;
+    left: 36px;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  4.9% {
+    top: 36px;
+    left: 36px;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  5% {
+    top: 36px;
+    left: 36px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 0px;
+    left: 0px;
+    width: 72px;
+    height: 72px;
+    opacity: 0;
+  }
+`
+
+export const ldsRipple = ({time = '1s', type = 'cubic-bezier(0, 0.2, 0.8, 1)'} = {}) => css` animation: ${time} ${rippleKeyFrames} ${type} infinite;`

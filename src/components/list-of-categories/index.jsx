@@ -5,32 +5,44 @@ Learning Resource from platzi
 
 File: index.js
 Created:  2022-05-22T01:55:05.818Z
-Modified: 2022-05-22T15:07:32.580Z
+Modified: 2022-05-22T16:41:36.326Z
 */
 
 import React, { useEffect, useState } from 'react'
 import { Category } from '../category'
+import { SkeletonCategory } from '../category/skeleton'
 import { Item, List } from './styles'
-
-export const ListOfCategories = () => {
+function useCategoriesData() {
   const [categories, setCategories] = useState([])
-  const [ showFixed, setShowFixed] = useState(0)
+  const [loading, setLoading] = useState(false)
   useEffect(()=>{
+    setLoading(true)
     fetch('https://petgram-server-g2p.vercel.app/categories')
     .then(res=>res.json())
-    .then(response => setCategories(response));
+    .then(response => {
+      setCategories(response)
+      setLoading(false)
+    });
   }, [])
+  return {categories, loading}
+}
+export const ListOfCategories = () => {
+  const {categories, loading} = useCategoriesData()
+  const [showFixed, setShowFixed] = useState(false)
+
   useEffect(()=>{
     const onScroll = e => {
       const newShowFixed = window.scrollY > 150
       showFixed !== newShowFixed && setShowFixed(newShowFixed)
+      console.log(`fixed: ${showFixed}`, window.scrollY)
     }
     document.addEventListener('scroll', onScroll)
     return () => document.removeEventListener('scroll', onScroll)
-  }, [])
+  }, [showFixed])
   function renderList(fixed) {
-    return <List className={fixed ? 'fixed' : ''}>
-      {categories.map((category) => (
+    return <List fixed={fixed}>
+      {loading ? [1,2,3,4].map(id => (<Item key={id}><SkeletonCategory/></Item>)) :
+      categories.map((category) => (
         <Item key={category.id}><Category {...category} /></Item>
       ))}
     </List>
