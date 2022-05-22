@@ -5,7 +5,7 @@ Learning Resource from platzi
 
 File: index.js
 Created:  2022-05-21T22:28:19.797Z
-Modified: 2022-05-22T18:12:13.594Z
+Modified: 2022-05-22T19:00:48.798Z
 */
 import {
   ApolloClient, ApolloProvider, InMemoryCache

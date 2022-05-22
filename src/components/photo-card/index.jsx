@@ -5,7 +5,7 @@ Learning Resource from platzi
 
 File: index.js
 Created:  2022-05-22T02:53:20.673Z
-Modified: 2022-05-22T18:00:35.905Z
+Modified: 2022-05-22T19:05:30.868Z
 */
 
 import React from 'react'
@@ -25,7 +25,7 @@ export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
   return (
     <Article ref={element}>
       {show && <>
-        <a href={`/detail/${id}`}>
+        <a href={`?detail=${id}`}>
           <ImgWrapper>
             <Img src={src}/>
           </ImgWrapper>
