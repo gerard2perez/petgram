@@ -5,11 +5,11 @@ Learning Resource from platzi
 
 File: styles.js
 Created:  2022-05-22T02:56:10.652Z
-Modified: 2022-05-22T17:22:05.418Z
+Modified: 2022-05-22T18:50:57.490Z
 */
 
 import styled from 'styled-components'
-import { fadeIn } from '../../styles/animation'
+import { fadeIn, skeletonStyle } from '../../styles/animation'
 export const Article = styled.article`
  margin: 10px;
  box-shadow: 1px 1px 5px 0px #999;
@@ -51,4 +51,12 @@ export const Button = styled.button`
     padding: 5px;
     box-shadow: 1px 1px 7px 0px #999;
   }
+`
+
+export const SkeletonPhotoCard = styled.article`
+  margin: 10px;
+  box-shadow: 1px 1px 5px 0px #999;
+  border-radius: 8px;
+  min-height: 200px;
+  ${skeletonStyle(false)}
 `

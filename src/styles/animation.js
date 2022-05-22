@@ -5,7 +5,7 @@ Learning Resource from platzi
 
 File: animation.js
 Created:  2022-05-22T03:38:17.847Z
-Modified: 2022-05-22T17:07:06.285Z
+Modified: 2022-05-22T18:42:10.920Z
 */
 
 import { css, keyframes } from 'styled-components'
@@ -21,8 +21,7 @@ const fadeInKeyFrames = keyframes`
     opacity: 1;
   }
 `
-export const fadeIn = ({time = '1s', type = 'ease'} = {}) => css` animation: ${time} ${fadeInKeyFrames} ${type};`
-
+export const fadeIn = ({ time = '1s', type = 'ease' } = {}) => css` animation: ${time} ${fadeInKeyFrames} ${type};`
 
 const slideFromTopKeyFrames = keyframes`
   0% {
@@ -41,8 +40,7 @@ const slideFromTopKeyFrames = keyframes`
     transform: translateY(-5px) scale(0.7);
   }
 `
-export const slideFromTop = ({time = '1s', type = 'ease'} = {}) => css` animation: ${time} ${slideFromTopKeyFrames} ${type};`
-
+export const slideFromTop = ({ time = '1s', type = 'ease' } = {}) => css` animation: ${time} ${slideFromTopKeyFrames} ${type};`
 
 const rippleKeyFrames = keyframes`
   0% {
@@ -75,12 +73,11 @@ const rippleKeyFrames = keyframes`
   }
 `
 
-export const ldsRipple = ({time = '1s', type = 'cubic-bezier(0, 0.2, 0.8, 1)'} = {}) => css` animation: ${time} ${rippleKeyFrames} ${type} infinite;`
-
+export const ldsRipple = ({ time = '1s', type = 'cubic-bezier(0, 0.2, 0.8, 1)' } = {}) => css` animation: ${time} ${rippleKeyFrames} ${type} infinite;`
 
 const skeletonBackground = (light) => (
   css`
-      background: ${ !light
+      background: ${!light
           ? css`linear-gradient(-90deg, #C1C1C1 0%, #F8F8F8 50%, #C1C1C1 100%)`
           : css`linear-gradient(-90deg, #F0F0F0 0%, #F8F8F8 50%, #F0F0F0 100%)`};
           background-size: 400% 400%;
@@ -95,6 +92,6 @@ const skeletonLoading = keyframes`
   to {
       background-position: -135% 0%;
   }
-`;
+`
 
-export const skeletonStyle = (light = true) => skeletonBackground(light);
+export const skeletonStyle = (light = true) => skeletonBackground(light)
