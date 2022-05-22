@@ -5,10 +5,11 @@ Learning Resource from platzi
 
 File: styles.js
 Created:  2022-05-22T02:56:10.652Z
-Modified: 2022-05-22T03:21:07.631Z
+Modified: 2022-05-22T03:39:33.436Z
 */
 
 import styled from 'styled-components'
+import { fadeIn } from '../../styles/animation'
 export const Article = styled.article`
  margin: 10px;
  box-shadow: 1px 1px 5px 0px #999;
@@ -30,6 +31,7 @@ export const Img = styled.img`
   position: absolute;
   top: 0;
   width: 100%;
+  ${fadeIn()}
 `
 export const Button = styled.button`
   display: flex;
