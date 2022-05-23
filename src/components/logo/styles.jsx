@@ -5,12 +5,13 @@ Learning Resource from platzi
 
 File: styles.jsx
 Created:  2022-05-22T03:11:20.453Z
-Modified: 2022-05-22T15:39:06.737Z
+Modified: 2022-05-22T20:14:46.874Z
 */
 
+import { Link as LinkRouter } from 'react-router-dom'
 import styled from 'styled-components'
-
-export const DivWrapper = styled.div`
+export const Link = styled(LinkRouter)`
+display: block;
   position: sticky;
   top: 0px;
   overflow: hidden;

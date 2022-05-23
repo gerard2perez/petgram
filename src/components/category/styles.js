@@ -5,13 +5,13 @@ Learning Resource from platzi
 
 File: styles.js
 Created:  2022-05-22T01:41:58.331Z
-Modified: 2022-05-22T17:05:04.294Z
+Modified: 2022-05-22T20:05:46.356Z
 */
 
+import { Link as LinkRouter } from 'react-router-dom'
 import styled from 'styled-components'
 import { ldsRipple } from '../../styles/animation'
-
-export const Anchor = styled.a`
+export const Link = styled(LinkRouter)`
   display: flex;
   flex-direction: column;
   text-align: center;

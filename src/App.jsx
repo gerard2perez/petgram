@@ -5,7 +5,7 @@ Learning Resource from platzi
 
 File: App.jsx
 Created:  2022-05-22T01:17:40.610Z
-Modified: 2022-05-22T19:58:18.307Z
+Modified: 2022-05-22T20:10:12.184Z
 */
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Logo } from './components/logo'
@@ -17,8 +17,8 @@ export const App = () => {
   // ? <PhotoCardWithQuery id={detailId}/>
   return <>
     <GlobalStyle/>
-    <Logo/>
     <BrowserRouter>
+      <Logo/>
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/pets/:id" element={<Home/>}/>

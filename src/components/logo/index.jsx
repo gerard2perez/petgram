@@ -5,15 +5,15 @@ Learning Resource from platzi
 
 File: index.jsx
 Created:  2022-05-22T03:10:06.003Z
-Modified: 2022-05-22T15:35:38.823Z
+Modified: 2022-05-22T20:09:31.051Z
 */
 
-import { useEffect, useState } from "react";
-import { DivWrapper, Svg } from "./styles";
+import { useEffect, useState } from 'react'
+import { Link, Svg } from './styles'
 
 export const Logo = (props) => {
-  const [ showFixed, setShowFixed] = useState(0)
-  useEffect(()=>{
+  const [showFixed, setShowFixed] = useState(0)
+  useEffect(() => {
     const onScroll = e => {
       const newShowFixed = window.scrollY > 150
       showFixed !== newShowFixed && setShowFixed(newShowFixed)
@@ -21,14 +21,14 @@ export const Logo = (props) => {
     document.addEventListener('scroll', onScroll)
     return () => document.removeEventListener('scroll', onScroll)
   }, [])
-  return <DivWrapper className={showFixed ? 'small': ''}>
+  return <Link to="/" className={showFixed ? 'small' : ''}>
     <Svg
       width={385.475}
       height={122}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="57.263 14 385.475 122"
       style={{
-        background: "0 0",
+        background: '0 0'
       }}
       preserveAspectRatio="xMidYMid"
       {...props}
@@ -52,5 +52,5 @@ export const Logo = (props) => {
         transform="translate(117.325 102.745)"
       />
     </Svg>
-  </DivWrapper>
-};
+  </Link>
+}
