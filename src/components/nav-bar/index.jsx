@@ -5,19 +5,22 @@ Learning Resource from platzi
 
 File: index.jsx
 Created:  2022-05-23T14:40:53.039Z
-Modified: 2022-05-23T14:50:16.426Z
+Modified: 2022-05-23T15:00:37.176Z
 */
 
 import React from 'react'
 import { MdFavoriteBorder, MdHome, MdPersonOutline } from 'react-icons/md'
-import { Link, Nav } from './styles'
+import { useLocation } from 'react-router'
+import { Nav, NavLink } from './styles'
 const SIZE = '32px'
 export const NavBar = () => {
+  const current = useLocation()
+  console.log(current)
   return (
     <Nav>
-      <Link to="/"><MdHome size={SIZE}/></Link>
-      <Link to="/favs"><MdFavoriteBorder size={SIZE}/></Link>
-      <Link to="/uer"><MdPersonOutline size={SIZE}/></Link>
+      <NavLink to="/"><MdHome size={SIZE}/></NavLink>
+      <NavLink to="/favs"><MdFavoriteBorder size={SIZE}/></NavLink>
+      <NavLink to="/uer"><MdPersonOutline size={SIZE}/></NavLink>
     </Nav>
   )
 }

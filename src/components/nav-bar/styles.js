@@ -5,11 +5,12 @@ Learning Resource from platzi
 
 File: styles.js
 Created:  2022-05-23T14:42:13.839Z
-Modified: 2022-05-23T14:46:32.896Z
+Modified: 2022-05-23T15:04:21.890Z
 */
 
-import { Link as LinkRouter } from 'react-router-dom'
+import { NavLink as LinkRouter } from 'react-router-dom'
 import styled from 'styled-components'
+import { fadeIn } from '../../styles/animation'
 export const Nav = styled.nav`
   align-items: center;
   background: #fcfcfc;
@@ -25,7 +26,7 @@ export const Nav = styled.nav`
   right: 0;
   z-index: 100;
 `
-export const Link = styled(LinkRouter)`
+export const NavLink = styled(LinkRouter)`
   align-items: center;
   color: #888;
   display: inline-flex;
@@ -33,4 +34,15 @@ export const Link = styled(LinkRouter)`
   justify-content: center;
   text-decoration: none;
   width: 100%;
+  &[aria-current] {
+    color: #000;
+    &:after {
+      ${fadeIn({ time: '0.5s' })};
+      content: ".";
+      position: absolute;
+      bottom: 5px;
+      font-size: 32px;
+      line-height: 20px;
+    }
+  }
 `
