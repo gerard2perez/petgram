@@ -5,7 +5,7 @@ Learning Resource from platzi
 
 File: index.jsx
 Created:  2022-05-23T14:40:53.039Z
-Modified: 2022-05-23T15:00:37.176Z
+Modified: 2022-05-23T15:07:43.609Z
 */
 
 import React from 'react'
@@ -20,7 +20,7 @@ export const NavBar = () => {
     <Nav>
       <NavLink to="/"><MdHome size={SIZE}/></NavLink>
       <NavLink to="/favs"><MdFavoriteBorder size={SIZE}/></NavLink>
-      <NavLink to="/uer"><MdPersonOutline size={SIZE}/></NavLink>
+      <NavLink to="/user"><MdPersonOutline size={SIZE}/></NavLink>
     </Nav>
   )
 }
