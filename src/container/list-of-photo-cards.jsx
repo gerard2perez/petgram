@@ -5,7 +5,7 @@ Learning Resource from platzi
 
 File: index.jsx
 Created:  2022-05-22T03:03:06.527Z
-Modified: 2022-05-22T19:39:13.958Z
+Modified: 2022-05-23T14:38:11.443Z
 */
 
 import { useQuery } from '@apollo/client'
@@ -17,7 +17,6 @@ import { GET_PHOTOS_BY_CATEGORY } from '../queries/getPhotosByCategory'
 export const ListOfPhotoCards = ({ categoryId }) => {
   const { loading, error, data: { photos = [{ id: 1 }, { id: 2 }, { id: 3 }] } = {} } = useQuery(GET_PHOTOS_BY_CATEGORY, { variables: { categoryId } })
   if (error) return <p>Error :(</p>
-  console.log(photos)
   return (
     <ul>
       {photos.map(photo => (

@@ -10,6 +10,7 @@ Modified: 2022-05-22T19:40:42.111Z
 
 import { useMutation } from '@apollo/client'
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { useLocalStorage } from '../../hooks/useLocalStorage'
 import { useOnScreen } from '../../hooks/useOnScreen'
 import { LIKE_ANONYMOUS_PHOTO } from '../../queries/like-anonymous-photo'
@@ -29,11 +30,11 @@ export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
   return (
     <Article ref={element}>
       {show && <>
-        <a href={`?detail=${id}`}>
+        <Link to={`/pet/${id}`}>
           <ImgWrapper>
             <Img src={src}/>
           </ImgWrapper>
-        </a>
+        </Link>
         <FavButton onClick={handleFavClick} likes={likes} liked={liked} />
       </>}
 
