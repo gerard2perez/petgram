@@ -5,7 +5,7 @@ Learning Resource from platzi
 
 File: useInitialState.js
 Created:  2022-05-23T15:21:33.679Z
-Modified: 2022-05-25T05:00:04.790Z
+Modified: 2022-05-25T06:02:33.258Z
 */
 
 import { useMutation } from '@apollo/client'
@@ -23,7 +23,6 @@ export function useInitialState () {
   const [signup, signUpMeta] = useMutation(SIGNUP)
   const [signin, signInMeta] = useMutation(SIGNIN)
   const activateAuth = (token) => {
-    console.log({ token })
     setSessionToken(token)
     setState({ ...state, token })
   }
@@ -35,5 +34,9 @@ export function useInitialState () {
     const { data: { signup: token } } = await signup({ variables: { input } })
     activateAuth(token)
   }
-  return { state, authenticate: [authenticate, signInMeta], register: [register, signUpMeta] }
+  const localLogOut = () => {
+    setSessionToken(undefined)
+    setState({ ...state, token: undefined })
+  }
+  return { localLogOut, state, authenticate: [authenticate, signInMeta], register: [register, signUpMeta] }
 }

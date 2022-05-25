@@ -5,7 +5,7 @@ Learning Resource from platzi
 
 File: useSessionStorage.js
 Created:  2022-05-25T04:48:23.613Z
-Modified: 2022-05-25T04:59:13.957Z
+Modified: 2022-05-25T06:08:17.365Z
 */
 import { useState } from 'react'
 
@@ -20,7 +20,11 @@ export function useSessionStorage (key, initialValue) {
   })
   const setSessionStorage = (value) => {
     try {
-      window.sessionStorage.setItem(key, JSON.stringify(value))
+      if (value) {
+        window.sessionStorage.setItem(key, JSON.stringify(value))
+      } else {
+        window.sessionStorage.removeItem(key)
+      }
     } catch (e) {
       console.error(e)
     }

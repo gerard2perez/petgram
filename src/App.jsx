@@ -5,11 +5,13 @@ Learning Resource from platzi
 
 File: App.jsx
 Created:  2022-05-22T01:17:40.610Z
-Modified: 2022-05-25T04:46:25.767Z
+Modified: 2022-05-25T05:48:04.156Z
 */
+
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Logo } from './components/logo'
 import { NavBar } from './components/nav-bar'
+import { ApolloErrorHandler } from './container/apollo-error-handler'
 import { ProtectedRoute } from './container/protected-route'
 import { AppContext } from './context/app-context'
 import { useInitialState } from './hooks/useInitialState'
@@ -23,6 +25,7 @@ export const App = () => {
   const initialValue = useInitialState()
   return <AppContext.Provider value={initialValue}>
     <BrowserRouter>
+      <ApolloErrorHandler/>
       <GlobalStyle/>
       <Logo/>
       <Routes>
