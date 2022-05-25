@@ -5,7 +5,7 @@ Learning Resource from platzi
 
 File: index.jsx
 Created:  2022-05-25T16:43:09.329Z
-Modified: 2022-05-25T17:58:35.658Z
+Modified: 2022-05-25T20:17:54.730Z
 */
 import { SkeletonFavorite } from '../skeleton-favorite/styles'
 import { Toaster } from '../toaster'
@@ -13,8 +13,7 @@ import { Grid, Image, Link } from './styles'
 const autoInc = ((i = 0) => () => ({ id: ++i }))()
 export const ListOfFavorites = ({ favs = [], loading, error }) => {
   if (loading) {
-    console.log(favs)
-    favs = Array(12).fill().map(autoInc)
+    favs = Array(favs.length || 9).fill().map(autoInc)
   }
   return <>
     <Grid>

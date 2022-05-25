@@ -5,7 +5,7 @@ Learning Resource from platzi
 
 File: styles.js
 Created:  2022-05-23T14:42:13.839Z
-Modified: 2022-05-23T15:04:21.890Z
+Modified: 2022-05-25T06:51:10.691Z
 */
 
 import { NavLink as LinkRouter } from 'react-router-dom'

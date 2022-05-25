@@ -5,20 +5,21 @@ Learning Resource from platzi
 
 File: index.js
 Created:  2022-05-23T15:59:08.309Z
-Modified: 2022-05-25T04:32:50.656Z
+Modified: 2022-05-25T20:31:28.449Z
 */
 
 import { ErrorMessage, Formik } from 'formik'
 import React, { useEffect, useRef } from 'react'
 import { PetRandomize } from '../pet-randomize'
 import { ResetForm } from '../reset-form'
+import { SubmitButton } from '../submit-button'
 import { Toaster } from '../toaster'
-import { Button, ErrorText, Field, Form, H2, Legend } from './styles'
+import { ErrorText, Field, Form, H2, Legend } from './styles'
 import { validationSchema } from './validation-schema'
 
 const initialValues = {
-  email: '',
-  password: ''
+  email: 'g2p@g.com',
+  password: '123456'
 }
 
 const useFormAnimation = () => {
@@ -54,7 +55,7 @@ export const UserForm = ({ signin, title, invTitle, invHash, mutation }) => {
       <Field disabled={loading} placeholder="Password" name="password" type="password" autoComplete="current-password" />
       <ErrorMessage name="password" component={ErrorText}/>
 
-      <Button disabled={loading} type="submit">{title}</Button>
+      <SubmitButton disabled={loading} type="submit">{title}</SubmitButton>
 
       <Legend>
         {signin ? 'are you not' : 'are you already'} registered?

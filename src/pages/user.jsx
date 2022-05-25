@@ -5,13 +5,17 @@ Learning Resource from platzi
 
 File: user.jsx
 Created:  2022-05-23T15:06:06.805Z
-Modified: 2022-05-21T22:28:14.541Z
+Modified: 2022-05-25T21:58:17.635Z
 */
 
-import React from 'react'
+import React, { useContext } from 'react'
+import { SubmitButton } from '../components/submit-button'
+import { AppContext } from '../context/app-context'
 
 export const User = () => {
-  return (
-    <div>User</div>
-  )
+  const { localLogOut } = useContext(AppContext)
+  return <>
+    <h1>User</h1>
+    <SubmitButton onClick={localLogOut}> Close session</SubmitButton>
+  </>
 }

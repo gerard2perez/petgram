@@ -5,7 +5,7 @@ Learning Resource from platzi
 
 File: styles.js
 Created:  2022-05-23T17:27:29.429Z
-Modified: 2022-05-25T04:29:29.035Z
+Modified: 2022-05-25T20:30:11.935Z
 */
 
 import { Field as FField, Form as FForm } from 'formik'
@@ -47,18 +47,7 @@ export const Form = styled(FForm)`
     ${fadeIn({ time: '250ms' })}
   }
 `
-export const Button = styled.button`
-  background-image: linear-gradient(to right, #f0f, #0ff);
-  color: white;
-  padding: 10px 50px;
-  border-radius: 3px;
-  width: 100%;
-  margin: 10px 0px;
-  &[disabled] {
-    filter: blur(1px);
-    opacity: 0.3;
-  }
-`
+
 export const Wrapper = styled.div`
   width: 80%;
   max-width: 400px;
