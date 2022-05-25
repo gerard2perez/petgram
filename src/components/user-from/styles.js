@@ -5,7 +5,7 @@ Learning Resource from platzi
 
 File: styles.js
 Created:  2022-05-23T17:27:29.429Z
-Modified: 2022-05-25T01:51:21.167Z
+Modified: 2022-05-25T04:29:29.035Z
 */
 
 import { Field as FField, Form as FForm } from 'formik'
@@ -25,8 +25,9 @@ export const Field = styled(FField)`
   border-image: linear-gradient(to right, #f0f, #0ff) 1;
   border-left-color: white;
   border-width: 0px 0px 2px 0px;
-  &:focus {
-    /* border-width: 0px 0px 3px 3px; */
+  &[disabled] {
+    filter: blur(1px);
+    opacity: 0.3;
   }
 
 `
@@ -53,6 +54,10 @@ export const Button = styled.button`
   border-radius: 3px;
   width: 100%;
   margin: 10px 0px;
+  &[disabled] {
+    filter: blur(1px);
+    opacity: 0.3;
+  }
 `
 export const Wrapper = styled.div`
   width: 80%;

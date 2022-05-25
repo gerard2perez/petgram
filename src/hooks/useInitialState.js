@@ -5,7 +5,7 @@ Learning Resource from platzi
 
 File: useInitialState.js
 Created:  2022-05-23T15:21:33.679Z
-Modified: 2022-05-25T03:17:27.535Z
+Modified: 2022-05-25T03:21:36.785Z
 */
 
 import { useMutation } from '@apollo/client'
@@ -14,7 +14,7 @@ import { SIGNUP } from '../queries/signup'
 
 export function useInitialState (initialState) {
   const [state, setState] = useState(initialState)
-  const [signup] = useMutation(SIGNUP)
+  const [signup, signUpMeta] = useMutation(SIGNUP)
   const authenticate = async (input) => {
     console.log(input)
   }
@@ -22,5 +22,5 @@ export function useInitialState (initialState) {
     await signup({ variables: { input } })
     setState({ ...state, isAuth: true })
   }
-  return { state, authenticate, register }
+  return { state, authenticate: [authenticate, {}], register: [register, signUpMeta] }
 }

@@ -17,5 +17,5 @@ export const NotRegisteredUser = () => {
   const labels = useGetLabels()
   const { signin } = labels
   const { authenticate, register } = useContext(AppContext)
-  return <UserForm onSubmit={ signin ? authenticate : register} {...labels} />
+  return <UserForm mutation={ signin ? authenticate : register} {...labels} />
 }
