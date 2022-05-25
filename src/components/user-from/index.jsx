@@ -5,7 +5,7 @@ Learning Resource from platzi
 
 File: index.js
 Created:  2022-05-23T15:59:08.309Z
-Modified: 2022-05-25T02:13:08.411Z
+Modified: 2022-05-25T03:09:13.248Z
 */
 
 import { ErrorMessage, Formik, useFormikContext } from 'formik'
@@ -32,12 +32,11 @@ const ResetForm = () => {
   }, [hash])
   return <></>
 }
-export const UserForm = ({ onSubmit }) => {
+export const UserForm = ({ signin, title, invTitle, invHash, onSubmit }) => {
   const ref = useRef(null)
-  const { signin, title, invTitle, invHash } = useGetLabels()
   const handleSubmit = (values, { setSubmitting }) => {
-    console.log(values, setSubmitting)
-    onSubmit()
+    console.log('submi', values)
+    onSubmit(values)
     setSubmitting(false)
   }
   const handleReset = () => {

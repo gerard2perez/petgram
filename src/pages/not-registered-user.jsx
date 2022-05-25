@@ -5,14 +5,17 @@ Learning Resource from platzi
 
 File: not-registered-user.jsx
 Created:  2022-05-23T15:09:28.159Z
-Modified: 2022-05-25T02:16:22.528Z
+Modified: 2022-05-25T03:13:27.713Z
 */
 
 import React, { useContext } from 'react'
 import { UserForm } from '../components/user-from'
 import { AppContext } from '../context/app-context'
+import { useGetLabels } from '../hooks/useGetLabels'
 
 export const NotRegisteredUser = () => {
-  const { authenticate } = useContext(AppContext)
-  return <UserForm onSubmit={authenticate} />
+  const labels = useGetLabels()
+  const { signin } = labels
+  const { authenticate, register } = useContext(AppContext)
+  return <UserForm onSubmit={ signin ? authenticate : register} {...labels} />
 }
