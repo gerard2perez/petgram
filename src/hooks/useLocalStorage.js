@@ -5,24 +5,24 @@ Learning Resource from platzi
 
 File: useLocalStorage.js
 Created:  2022-05-22T17:44:54.392Z
-Modified: 2022-05-22T17:45:10.741Z
+Modified: 2022-05-23T18:16:44.603Z
 */
 
 import { useState } from 'react'
 
-export function useLocalStorage(key, initialValue) {
-  const [storedValue, setStoredValue] = useState(()=>{
-    try{
+export function useLocalStorage (key, initialValue) {
+  const [storedValue, setStoredValue] = useState(() => {
+    try {
       const item = window.localStorage.getItem(key)
       return item === null ? initialValue : JSON.parse(item)
-    }catch(e) {
+    } catch (e) {
       return initialValue
     }
   })
-  const setLocalStorage = (value) =>{
+  const setLocalStorage = (value) => {
     try {
       window.localStorage.setItem(key, JSON.stringify(value))
-    } catch(e) {
+    } catch (e) {
       console.error(e)
     }
     setStoredValue(value)

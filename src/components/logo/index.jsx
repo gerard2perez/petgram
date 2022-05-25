@@ -5,7 +5,7 @@ Learning Resource from platzi
 
 File: index.jsx
 Created:  2022-05-22T03:10:06.003Z
-Modified: 2022-05-22T20:09:31.051Z
+Modified: 2022-05-23T17:35:51.831Z
 */
 
 import { useEffect, useState } from 'react'

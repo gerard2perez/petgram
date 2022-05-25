@@ -5,7 +5,7 @@ Learning Resource from platzi
 
 File: styles.js
 Created:  2022-05-22T01:41:58.331Z
-Modified: 2022-05-22T20:05:46.356Z
+Modified: 2022-05-23T17:38:06.314Z
 */
 
 import { Link as LinkRouter } from 'react-router-dom'
@@ -22,7 +22,7 @@ export const DecorateImage = styled.div`
   width: 78px;
   height: 78px;
   border-radius: 50%;
-  background-image: linear-gradient(#405de6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #F77737, #FCAF45, #FFDC80);
+  background-image: linear-gradient(#f0f, #0ff);
   display: flex;
   justify-content: center;
   align-items: center;
