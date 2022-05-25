@@ -5,7 +5,7 @@ Learning Resource from platzi
 
 File: GlobalStyles.js
 Created:  2022-05-22T02:01:26.234Z
-Modified: 2022-05-22T03:26:07.225Z
+Modified: 2022-05-25T06:50:44.519Z
 */
 
 import { createGlobalStyle } from 'styled-components'
@@ -35,8 +35,7 @@ export const GlobalStyle = createGlobalStyle`
 
   #app {
     box-shadow: 0 0 10px rgba(0, 0, 0, .05);
-    /* overflow-x: hidden; */
     min-height: 100vh;
-    padding-bottom: 10px;
+    padding-bottom: 50px;
   }
 `
