@@ -5,12 +5,12 @@ Learning Resource from platzi
 
 File: App.jsx
 Created:  2022-05-22T01:17:40.610Z
-Modified: 2022-05-23T15:57:36.949Z
+Modified: 2022-05-25T04:46:25.767Z
 */
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Logo } from './components/logo'
 import { NavBar } from './components/nav-bar'
-import { ProtectedRoute } from './components/protected-route'
+import { ProtectedRoute } from './container/protected-route'
 import { AppContext } from './context/app-context'
 import { useInitialState } from './hooks/useInitialState'
 import { Detail } from './pages/detail'
@@ -20,9 +20,7 @@ import { User } from './pages/user'
 import { GlobalStyle } from './styles/GlobalStyles'
 
 export const App = () => {
-  const initialValue = useInitialState({
-    isAuth: false
-  })
+  const initialValue = useInitialState()
   return <AppContext.Provider value={initialValue}>
     <BrowserRouter>
       <GlobalStyle/>
