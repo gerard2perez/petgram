@@ -5,10 +5,10 @@ Learning Resource from platzi
 
 File: index.js
 Created:  2022-05-22T01:55:05.818Z
-Modified: 2022-05-26T03:09:18.621Z
+Modified: 2022-05-26T04:11:58.102Z
 */
 
-import React, { useContext, useEffect, useState } from 'react'
+import React, { memo, useContext, useEffect, useState } from 'react'
 import { AppContext } from '../../context/app-context'
 import { autoGentIdArray } from '../../utils/auto-gen-id-array'
 import { Category } from '../category'
@@ -37,7 +37,7 @@ function renderList ({ hidden, categories, fixed = false, loading }) {
     ))}
   </List>
 }
-export const ListOfCategories = () => {
+export const ListOfCategoriesComponent = () => {
   const { categories: _categories, loading } = useCategoriesData()
   const { scrollLimitReached } = useContext(AppContext)
   const categories = loading ? autoGentIdArray(6) : _categories
@@ -48,3 +48,5 @@ export const ListOfCategories = () => {
     </>
   )
 }
+
+export const ListOfCategories = memo(ListOfCategoriesComponent)

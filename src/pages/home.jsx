@@ -5,14 +5,15 @@ Learning Resource from platzi
 
 File: home.jsx
 Created:  2022-05-22T19:47:02.294Z
-Modified: 2022-05-26T01:36:45.342Z
+Modified: 2022-05-26T04:24:34.737Z
 */
 
+import React from 'react'
 import { useParams } from 'react-router'
 import { Layout } from '../components/layout'
 import { ListOfCategories } from '../components/list-of-categories'
 import { ListOfPhotoCards } from '../container/list-of-photo-cards'
-export const Home = () => {
+const HomePage = () => {
   const { categoryId } = useParams()
   return (
     <Layout append={false} title='Your pet photo app' subtitle='With petgram you can find your favorite pet photos' >
@@ -21,3 +22,7 @@ export const Home = () => {
     </Layout>
   )
 }
+// eslint-disable-next-line react/display-name
+export const Home = React.memo(HomePage, (prevProps, props) => {
+  return prevProps.categoryId === props.categoryId
+})
