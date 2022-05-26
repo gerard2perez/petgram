@@ -5,3 +5,4 @@ node_modules/
 copyright.notice
 
 .vercel
+stats.json

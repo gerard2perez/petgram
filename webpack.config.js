@@ -4,8 +4,14 @@ const webpack = require('webpack')
 const WebpackPWAManifest = require('webpack-pwa-manifest')
 const path = require('path')
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+
 module.exports = {
   mode: 'development',
+  optimization: {
+    usedExports: true,
+    sideEffects: false
+  },
   devtool: 'inline-source-map',
   entry: './src/index.jsx',
   output: {
@@ -26,6 +32,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new BundleAnalyzerPlugin(),
     new webpack.ProvidePlugin({
       React: 'react'
     }),
@@ -54,6 +61,7 @@ module.exports = {
     }),
     new WorkboxWebpackPlugin.GenerateSW({
       clientsClaim: true,
+      maximumFileSizeToCacheInBytes: 17000000,
       runtimeCaching: [
         {
           urlPattern: /https:\/\/(res.cloudinary.com|images.unsplash.com)/,

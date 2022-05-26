@@ -5,7 +5,7 @@ Learning Resource from platzi
 
 File: index.js
 Created:  2022-05-23T15:59:08.309Z
-Modified: 2022-05-25T20:31:28.449Z
+Modified: 2022-05-26T17:24:29.003Z
 */
 
 import { ErrorMessage, Formik } from 'formik'
