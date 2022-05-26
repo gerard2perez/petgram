@@ -5,7 +5,7 @@ Learning Resource from platzi
 
 File: App.jsx
 Created:  2022-05-22T01:17:40.610Z
-Modified: 2022-05-25T05:48:04.156Z
+Modified: 2022-05-25T22:02:52.200Z
 */
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
@@ -18,6 +18,7 @@ import { useInitialState } from './hooks/useInitialState'
 import { Detail } from './pages/detail'
 import { Favs } from './pages/fav'
 import { Home } from './pages/home'
+import { NotFound } from './pages/not-found'
 import { User } from './pages/user'
 import { GlobalStyle } from './styles/GlobalStyles'
 
@@ -34,6 +35,7 @@ export const App = () => {
         <Route path="/pet/:petId" element={<Detail/>}/>
         <Route path="/favs" element={<ProtectedRoute><Favs/></ProtectedRoute>}/>
         <Route path="/user" element={<ProtectedRoute><User/></ProtectedRoute>}/>
+        <Route path='*' element={<NotFound/>}/>
       </Routes>
       <NavBar/>
     </BrowserRouter>
