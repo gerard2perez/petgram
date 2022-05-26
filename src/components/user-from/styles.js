@@ -5,7 +5,7 @@ Learning Resource from platzi
 
 File: styles.js
 Created:  2022-05-23T17:27:29.429Z
-Modified: 2022-05-25T20:30:11.935Z
+Modified: 2022-05-26T04:57:33.371Z
 */
 
 import { Field as FField, Form as FForm } from 'formik'
@@ -41,8 +41,6 @@ export const ErrorText = styled.div`
 
 export const Form = styled(FForm)`
   margin: 0 auto;
-  width: 80%;
-  max-width: 400px;
   &.enters {
     ${fadeIn({ time: '250ms' })}
   }
