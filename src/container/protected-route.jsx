@@ -5,14 +5,14 @@ Learning Resource from platzi
 
 File: index.jsx
 Created:  2022-05-23T15:56:08.734Z
-Modified: 2022-05-25T04:58:10.832Z
+Modified: 2022-05-26T03:19:52.737Z
 */
 
 import React, { useContext } from 'react'
+import { Navigate } from 'react-router-dom'
 import { AppContext } from '../context/app-context'
-import { NotRegisteredUser } from '../pages/not-registered-user'
 
-export const ProtectedRoute = ({ children }) => {
+export const ProtectedRoute = ({ children, redirect }) => {
   const { state: { token } } = useContext(AppContext)
-  return token ? children : <NotRegisteredUser/>
+  return token ? children : <Navigate to={redirect}/>
 }

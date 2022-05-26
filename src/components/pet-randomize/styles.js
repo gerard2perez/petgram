@@ -5,7 +5,7 @@ Learning Resource from platzi
 
 File: styles.js
 Created:  2022-05-23T17:02:10.958Z
-Modified: 2022-05-26T01:05:50.085Z
+Modified: 2022-05-26T03:25:47.184Z
 */
 
 import styled from 'styled-components'
@@ -14,7 +14,7 @@ export const Pet = styled.div`
   width: 50%;
   max-width: 300px;
   margin: 0 auto;
-  height: 160px;
+  height: 120px;
   display: flex;
   align-items: flex-end;
   svg {
