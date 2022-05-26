@@ -5,13 +5,13 @@ Learning Resource from platzi
 
 File: styles.js
 Created:  2022-05-22T02:56:10.652Z
-Modified: 2022-05-22T19:21:27.241Z
+Modified: 2022-05-26T01:40:17.383Z
 */
 
 import styled from 'styled-components'
 import { fadeIn, skeletonStyle } from '../../styles/animation'
 export const Article = styled.article`
- margin: 10px;
+margin-bottom: 10px;
  box-shadow: 1px 1px 5px 0px #999;
  border-radius: 8px;
  min-height: 200px;
@@ -23,7 +23,7 @@ export const ImgWrapper = styled.div`
   overflow: hidden;
   padding: 56.25% 0 0 0;
   position: relative;
-  widows: 100%;
+  width: 100%;
 `
 export const Img = styled.img`
   box-shadow: 0 10px 14px rgba(0, 0, 0, 0.2);

@@ -5,7 +5,7 @@ Learning Resource from platzi
 
 File: styles.js
 Created:  2022-05-22T01:58:17.668Z
-Modified: 2022-05-22T20:12:51.840Z
+Modified: 2022-05-26T03:10:19.999Z
 */
 
 import styled, { css } from 'styled-components'
@@ -19,6 +19,7 @@ export const List = styled.ul`
   z-index: 10;
   background: white;
   padding-bottom: 10px;
+  transition: opacity 250ms ease-in-out;
   ${props => props.fixed && css`
   {
     background: white;
@@ -35,6 +36,9 @@ export const List = styled.ul`
     padding: 8px 10px;
     ${slideFromTop({ time: '300ms', type: 'ease-out' })}
   }
+  `}
+  ${props => props.hidden && css`
+    opacity: 0;
   `}
 `
 export const Item = styled.li`

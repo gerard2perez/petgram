@@ -5,10 +5,12 @@ Learning Resource from platzi
 
 File: index.js
 Created:  2022-05-22T01:55:05.818Z
-Modified: 2022-05-22T20:02:27.344Z
+Modified: 2022-05-26T03:09:18.621Z
 */
 
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { AppContext } from '../../context/app-context'
+import { autoGentIdArray } from '../../utils/auto-gen-id-array'
 import { Category } from '../category'
 import { SkeletonCategory } from '../category/skeleton'
 import { Item, List } from './styles'
@@ -26,32 +28,23 @@ function useCategoriesData () {
   }, [])
   return { categories, loading }
 }
+function renderList ({ hidden, categories, fixed = false, loading }) {
+  return <List fixed={fixed} hidden={hidden}>
+    {categories.map(category => (
+      <Item key={category.id}>
+        {loading ? <SkeletonCategory/> : <Category {...category} path={`/pets/${category.id}`} />}
+      </Item>
+    ))}
+  </List>
+}
 export const ListOfCategories = () => {
-  const { categories, loading } = useCategoriesData()
-  const [showFixed, setShowFixed] = useState(false)
-
-  useEffect(() => {
-    const onScroll = e => {
-      const newShowFixed = window.scrollY > 150
-      showFixed !== newShowFixed && setShowFixed(newShowFixed)
-    }
-    document.addEventListener('scroll', onScroll)
-    return () => document.removeEventListener('scroll', onScroll)
-  }, [showFixed])
-  function renderList (fixed) {
-    return <List fixed={fixed}>
-      {loading
-        ? [1, 2, 3, 4].map(id => (<Item key={id}><SkeletonCategory/></Item>))
-        : categories.map((category) => (
-        <Item key={category.id}><Category {...category} path={`/pets/${category.id}`} /></Item>
-        ))}
-    </List>
-  }
+  const { categories: _categories, loading } = useCategoriesData()
+  const { scrollLimitReached } = useContext(AppContext)
+  const categories = loading ? autoGentIdArray(6) : _categories
   return (
     <>
-      {renderList()}
-      {showFixed && renderList(true)}
+      {renderList({ hidden: scrollLimitReached, loading, categories })}
+      {scrollLimitReached && renderList({ fixed: true, loading, categories })}
     </>
-
   )
 }

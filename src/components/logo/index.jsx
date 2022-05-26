@@ -5,24 +5,17 @@ Learning Resource from platzi
 
 File: index.jsx
 Created:  2022-05-22T03:10:06.003Z
-Modified: 2022-05-26T00:55:55.068Z
+Modified: 2022-05-26T03:05:54.992Z
 */
 
-import { useEffect, useState } from 'react'
+import { useContext, useEffect } from 'react'
+import { AppContext } from '../../context/app-context'
 import { LinearGradient } from '../gradient'
 import { Link, Svg } from './styles'
-
 export const Logo = (props) => {
-  const [showFixed, setShowFixed] = useState(0)
-  useEffect(() => {
-    const onScroll = e => {
-      const newShowFixed = window.scrollY > 150
-      showFixed !== newShowFixed && setShowFixed(newShowFixed)
-    }
-    document.addEventListener('scroll', onScroll)
-    return () => document.removeEventListener('scroll', onScroll)
-  }, [])
-  return <Link to="/" className={showFixed ? 'small' : ''}>
+  const { scrollRef, scrollLimitReached, setScrollOffset } = useContext(AppContext)
+  useEffect(() => setScrollOffset(40), [])
+  return <Link ref={scrollRef} to="/" className={scrollLimitReached ? 'small' : ''}>
     <Svg
       width={385.475}
       height={122}

@@ -5,7 +5,7 @@ Learning Resource from platzi
 
 File: animation.js
 Created:  2022-05-22T03:38:17.847Z
-Modified: 2022-05-22T18:42:10.920Z
+Modified: 2022-05-26T03:12:59.808Z
 */
 
 import { css, keyframes } from 'styled-components'
@@ -78,8 +78,8 @@ export const ldsRipple = ({ time = '1s', type = 'cubic-bezier(0, 0.2, 0.8, 1)' }
 const skeletonBackground = (light) => (
   css`
       background: ${!light
-          ? css`linear-gradient(-90deg, #C1C1C1 0%, #F8F8F8 50%, #C1C1C1 100%)`
-          : css`linear-gradient(-90deg, #F0F0F0 0%, #F8F8F8 50%, #F0F0F0 100%)`};
+    ? css`linear-gradient(-90deg, #C1C1C1 0%, #F8F8F8 50%, #C1C1C1 100%)`
+    : css`linear-gradient(-90deg, #F0F0F0 0%, #F8F8F8 50%, #F0F0F0 100%)`};
           background-size: 400% 400%;
           animation: ${skeletonLoading} 1.2s ease-in-out infinite;
   `

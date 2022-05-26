@@ -5,19 +5,19 @@ Learning Resource from platzi
 
 File: home.jsx
 Created:  2022-05-22T19:47:02.294Z
-Modified: 2022-05-23T14:39:07.603Z
+Modified: 2022-05-26T01:36:45.342Z
 */
 
 import { useParams } from 'react-router'
+import { Layout } from '../components/layout'
 import { ListOfCategories } from '../components/list-of-categories'
 import { ListOfPhotoCards } from '../container/list-of-photo-cards'
-
 export const Home = () => {
   const { categoryId } = useParams()
   return (
-    <>
+    <Layout append={false} title='Your pet photo app' subtitle='With petgram you can find your favorite pet photos' >
       <ListOfCategories />
       <ListOfPhotoCards categoryId={categoryId} />
-    </>
+    </Layout>
   )
 }
