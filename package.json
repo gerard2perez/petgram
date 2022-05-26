@@ -4,7 +4,7 @@
   "description": "Thesis App for React.js",
   "main": "index.js",
   "scripts": {
-    "s:dev": "webpack --mode=development && serve dist -s --open",
+    "s:dev": "webpack --mode=production && serve dist -s",
     "build": "webpack",
     "dev": "webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -44,7 +44,8 @@
     "webpack": "^5.72.1",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.9.0",
-    "webpack-pwa-manifest": "^4.3.0"
+    "webpack-pwa-manifest": "^4.3.0",
+    "workbox-webpack-plugin": "^6.5.3"
   },
   "dependencies": {
     "@apollo/client": "^3.6.4",

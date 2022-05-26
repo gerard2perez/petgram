@@ -5,7 +5,7 @@ Learning Resource from platzi
 
 File: index.html
 Created:  2022-05-21T22:33:13.595Z
-Modified: 2022-05-26T15:49:14.966Z
+Modified: 2022-05-26T16:19:11.778Z
 -->
 
 <!DOCTYPE html>
@@ -21,5 +21,18 @@ Modified: 2022-05-26T15:49:14.966Z
     <noscript>
       This app requires javascript to work, please enable it on your configuration
     </noscript>
+    <script>
+      if('serviceWorker' in navigator) {
+        window.addEventListener('load', ()=>{
+          navigator.serviceWorker.register('/service-worker.js')
+            .then(registration => {
+              console.log('SW registered')
+            })
+            .catch(registrationError => {
+              console.log('SW error', registrationError)
+            })
+        })
+      }
+    </script>
 </body>
 </html>

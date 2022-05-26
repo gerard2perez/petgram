@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 const WebpackPWAManifest = require('webpack-pwa-manifest')
 const path = require('path')
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
 module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
@@ -37,11 +38,36 @@ module.exports = {
       short_name: 'Petgram 🐶',
       description: 'With petgram you can find your favorite pets photos',
       background_color: '#fff',
+      orientation: 'portrait',
+      display: 'standalone',
+      start_url: '/',
+      scope: '/',
       theme_color: '#b1a',
       icons: [
         {
           src: path.resolve('src/assets/icon.png'),
-          sizes: [96, 128, 192, 256, 384, 512]
+          sizes: [96, 128, 192, 256, 384, 512],
+          destination: path.join('icons'),
+          ios: true
+        }
+      ]
+    }),
+    new WorkboxWebpackPlugin.GenerateSW({
+      clientsClaim: true,
+      runtimeCaching: [
+        {
+          urlPattern: /https:\/\/(res.cloudinary.com|images.unsplash.com)/,
+          handler: 'CacheFirst',
+          options: {
+            cacheName: 'images'
+          }
+        },
+        {
+          urlPattern: /https:\/\/petgram-server-g2p.vercel.app/,
+          handler: 'NetworkFirst',
+          options: {
+            cacheName: 'api'
+          }
         }
       ]
     })
