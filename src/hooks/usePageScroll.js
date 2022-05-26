@@ -5,7 +5,7 @@ Learning Resource from platzi
 
 File: usePageScroll.js
 Created:  2022-05-26T02:29:17.241Z
-Modified: 2022-05-26T03:05:36.726Z
+Modified: 2022-05-26T04:30:05.632Z
 */
 
 import { useEffect, useRef, useState } from 'react'
@@ -19,7 +19,7 @@ export const usePageScroll = () => {
     const logo = ref.current
     if (!logo) return
     const height = logo.offsetHeight
-    const onScroll = e => {
+    const onScroll = () => {
       const newShowFixed = window.scrollY > height + offset
       if (scrollLimitReached !== newShowFixed) {
         document.removeEventListener('scroll', onScroll)
@@ -31,6 +31,7 @@ export const usePageScroll = () => {
       setTriggerListen(!triggerListen)
     }
     logo.addEventListener('transitionend', reEnableScrollEvent)
+    onScroll()
     document.addEventListener('scroll', onScroll)
     return () => {
       logo.removeEventListener('transitionend', reEnableScrollEvent)
