@@ -3,11 +3,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 const WebpackPWAManifest = require('webpack-pwa-manifest')
 const path = require('path')
-// const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-
+const AnalyzerMode = function () {
+  return process.env.NODE_ENV === 'production' ? 'static' : 'disabled'
+}
 module.exports = {
-  mode: 'development',
   optimization: {
     usedExports: true,
     sideEffects: false
@@ -32,7 +33,9 @@ module.exports = {
     ]
   },
   plugins: [
-    new BundleAnalyzerPlugin(),
+    new BundleAnalyzerPlugin({
+      analyzerMode: AnalyzerMode()
+    }),
     new webpack.ProvidePlugin({
       React: 'react'
     }),
@@ -58,27 +61,27 @@ module.exports = {
           ios: true
         }
       ]
+    }),
+    new WorkboxWebpackPlugin.GenerateSW({
+      clientsClaim: true,
+      maximumFileSizeToCacheInBytes: 17000000,
+      runtimeCaching: [
+        {
+          urlPattern: /https:\/\/(res.cloudinary.com|images.unsplash.com)/,
+          handler: 'CacheFirst',
+          options: {
+            cacheName: 'images'
+          }
+        },
+        {
+          urlPattern: /https:\/\/petgram-server-g2p.vercel.app/,
+          handler: 'NetworkFirst',
+          options: {
+            cacheName: 'api'
+          }
+        }
+      ]
     })
-    // new WorkboxWebpackPlugin.GenerateSW({
-    //   clientsClaim: true,
-    //   maximumFileSizeToCacheInBytes: 17000000,
-    //   runtimeCaching: [
-    //     {
-    //       urlPattern: /https:\/\/(res.cloudinary.com|images.unsplash.com)/,
-    //       handler: 'CacheFirst',
-    //       options: {
-    //         cacheName: 'images'
-    //       }
-    //     },
-    //     {
-    //       urlPattern: /https:\/\/petgram-server-g2p.vercel.app/,
-    //       handler: 'NetworkFirst',
-    //       options: {
-    //         cacheName: 'api'
-    //       }
-    //     }
-    //   ]
-    // })
   ],
   devServer: {
     historyApiFallback: true,
