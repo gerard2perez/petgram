@@ -5,7 +5,7 @@ Learning Resource from platzi
 
 File: index.jsx
 Created:  2022-05-22T03:10:06.003Z
-Modified: 2022-05-26T03:05:54.992Z
+Modified: 2022-05-27T22:33:09.969Z
 */
 
 import { useContext, useEffect } from 'react'
@@ -15,7 +15,7 @@ import { Link, Svg } from './styles'
 export const Logo = (props) => {
   const { scrollRef, scrollLimitReached, setScrollOffset } = useContext(AppContext)
   useEffect(() => setScrollOffset(40), [])
-  return <Link ref={scrollRef} to="/" className={scrollLimitReached ? 'small' : ''}>
+  return <Link aria-label='Petgram logo' ref={scrollRef} to="/" className={scrollLimitReached ? 'small' : ''}>
     <Svg
       width={385.475}
       height={122}

@@ -5,7 +5,7 @@ Learning Resource from platzi
 
 File: App.jsx
 Created:  2022-05-22T01:17:40.610Z
-Modified: 2022-05-27T19:31:36.903Z
+Modified: 2022-05-27T21:50:42.731Z
 */
 
 import { lazy, StrictMode, Suspense } from 'react'
@@ -15,14 +15,14 @@ import { NavBar } from './components/nav-bar'
 import { ProtectedRoute } from './container/protected-route'
 import { AppContext } from './context/app-context'
 import { useInitialState } from './hooks/useInitialState'
-import { Detail } from './pages/detail'
-import { Home } from './pages/home'
-import { NotRegisteredUser } from './pages/not-registered-user'
 import { GlobalStyle } from './styles/GlobalStyles'
 
+const NotRegisteredUser = lazy(() => import('./pages/not-registered-user'))
 const Favs = lazy(() => import('./pages/fav'))
 const User = lazy(() => import('./pages/user'))
 const NotFound = lazy(() => import('./pages/not-found'))
+const Detail = lazy(() => import('./pages/detail'))
+const Home = lazy(() => import('./pages/home'))
 export const App = () => {
   const initialValue = useInitialState()
   return <AppContext.Provider value={initialValue}>

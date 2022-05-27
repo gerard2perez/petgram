@@ -14,7 +14,7 @@ import { UserForm } from '../components/user-from'
 import { AppContext } from '../context/app-context'
 import { useGetLabels } from '../hooks/useGetLabels'
 
-export const NotRegisteredUser = () => {
+export default function NotRegisteredUser () {
   const labels = useGetLabels()
   const { signin } = labels
   const { authenticate, register } = useContext(AppContext)

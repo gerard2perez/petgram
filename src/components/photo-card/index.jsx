@@ -5,7 +5,7 @@ Learning Resource from platzi
 
 File: index.js
 Created:  2022-05-22T02:53:20.673Z
-Modified: 2022-05-27T19:31:06.329Z
+Modified: 2022-05-27T22:31:40.635Z
 */
 import { useMutation } from '@apollo/client'
 import PropTypes from 'prop-types'
@@ -32,7 +32,7 @@ export const PhotoCard = ({ id, liked, likes = 0, src = DEFAULT_IMAGE }) => {
       {show && <>
         <Link to={`/pet/${id}`}>
           <ImgWrapper>
-            <Img src={src}/>
+            <Img src={src} alt={`pet ${id}`}/>
           </ImgWrapper>
         </Link>
         <FavButton onClick={handleFavClick} likes={likes} liked={liked} />

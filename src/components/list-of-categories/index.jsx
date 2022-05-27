@@ -5,7 +5,7 @@ Learning Resource from platzi
 
 File: index.js
 Created:  2022-05-22T01:55:05.818Z
-Modified: 2022-05-26T04:11:58.102Z
+Modified: 2022-05-27T22:30:59.504Z
 */
 
 import React, { memo, useContext, useEffect, useState } from 'react'
