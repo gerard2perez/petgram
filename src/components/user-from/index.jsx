@@ -5,11 +5,12 @@ Learning Resource from platzi
 
 File: index.js
 Created:  2022-05-23T15:59:08.309Z
-Modified: 2022-05-26T17:24:29.003Z
+Modified: 2022-05-27T19:55:02.197Z
 */
 
 import { ErrorMessage, Formik } from 'formik'
 import React, { useEffect, useRef } from 'react'
+import { useNavigate } from 'react-router'
 import { PetRandomize } from '../pet-randomize'
 import { ResetForm } from '../reset-form'
 import { SubmitButton } from '../submit-button'
@@ -18,8 +19,8 @@ import { ErrorText, Field, Form, H2, Legend } from './styles'
 import { validationSchema } from './validation-schema'
 
 const initialValues = {
-  email: 'g2p@g.com',
-  password: '123456'
+  email: '',
+  password: ''
 }
 
 const useFormAnimation = () => {
@@ -37,11 +38,15 @@ const useFormAnimation = () => {
   return { ref, handleReset }
 }
 export const UserForm = ({ signin, title, invTitle, invHash, mutation }) => {
-  const [onSubmit, { loading, error }] = mutation
+  const navigate = useNavigate()
+  const [onSubmit, { loading, error, reset }] = mutation
+  console.log({ error, reset })
   const { ref, handleReset } = useFormAnimation()
   const handleSubmit = (values, { setSubmitting }) => {
-    onSubmit(values)
-    setSubmitting(false)
+    onSubmit(values).then(_ => {
+      setSubmitting(false)
+      navigate('/')
+    })
   }
 
   return <Formik onReset={handleReset} initialValues={initialValues} onSubmit={handleSubmit} validationSchema={validationSchema}>
@@ -61,7 +66,7 @@ export const UserForm = ({ signin, title, invTitle, invHash, mutation }) => {
         {signin ? 'are you not' : 'are you already'} registered?
         <a href={`#${invHash}`}>{invTitle}</a>
       </Legend>
-      {error && <Toaster message={error.message}/>}
+      {error && <Toaster message={error.message} onClick={reset}/>}
     </Form>
   </Formik>
 }
