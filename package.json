@@ -5,9 +5,11 @@
   "description": "Thesis App for React.js",
   "main": "index.js",
   "scripts": {
-    "s:dev": "webpack --mode=production && serve dist -s",
-    "build": "webpack --mode=production",
-    "dev": "webpack-dev-server --mode=development",
+    "analyze": "webpack --config=webpack.analyze.js",
+    "lighthouse": "webpack --config=webpack.prod.js",
+    "postlighthouse": "serve dist -s",
+    "build": "webpack --config=webpack.prod.js",
+    "dev": "webpack-dev-server --config=webpack.dev.js",
     "test": "cypress run",
     "test:dev": "cypress open"
   },
@@ -41,6 +43,8 @@
     "eslint-plugin-n": "^15.2.0",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.30.0",
+    "favicons": "^6.2.2",
+    "favicons-webpack-plugin": "^5.0.2",
     "html-webpack-plugin": "^5.5.0",
     "prop-types": "^15.8.1",
     "serve": "^13.0.2",
