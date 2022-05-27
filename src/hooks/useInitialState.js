@@ -5,7 +5,7 @@ Learning Resource from platzi
 
 File: useInitialState.js
 Created:  2022-05-23T15:21:33.679Z
-Modified: 2022-05-26T02:41:58.714Z
+Modified: 2022-05-27T19:19:37.985Z
 */
 
 import { useApolloClient, useMutation } from '@apollo/client'
@@ -16,7 +16,6 @@ import { usePageScroll } from './usePageScroll'
 import { useSessionStorage } from './useSessionStorage'
 
 export function useInitialState () {
-  console.log('re-render inital state')
   const { ref: scrollRef, scrollLimitReached, setScrollOffset } = usePageScroll()
   const [sessionToken, setSessionToken] = useSessionStorage('current-user', null)
   const [state, setState] = useState({
@@ -30,10 +29,12 @@ export function useInitialState () {
     setState({ ...state, token })
   }
   const authenticate = async (input) => {
+    // debugger
     const { data: { login: token } } = await signin({ variables: { input } })
     activateAuth(token)
   }
   const register = async (input) => {
+    // debugger
     const { data: { signup: token } } = await signup({ variables: { input } })
     activateAuth(token)
   }

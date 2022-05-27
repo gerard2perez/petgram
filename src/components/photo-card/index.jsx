@@ -5,11 +5,12 @@ Learning Resource from platzi
 
 File: index.js
 Created:  2022-05-22T02:53:20.673Z
-Modified: 2022-05-26T15:45:45.492Z
+Modified: 2022-05-27T19:31:06.329Z
 */
 import { useMutation } from '@apollo/client'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { useNavigate } from 'react-router'
 import { Link } from 'react-router-dom'
 import { useOnScreen } from '../../hooks/useOnScreen'
 import { LIKE_PHOTO } from '../../queries/like-photo'
@@ -20,9 +21,11 @@ const DEFAULT_IMAGE = 'https://res.cloudinary.com/midudev/image/upload/w_300/q_8
 export const PhotoCard = ({ id, liked, likes = 0, src = DEFAULT_IMAGE }) => {
   const { show, element } = useOnScreen()
   const [toggleLike] = useMutation(LIKE_PHOTO)
+  const navigate = useNavigate()
 
   const handleFavClick = () => {
     toggleLike({ variables: { input: { id } } })
+      .catch(_ => navigate('/login'))
   }
   return (
     <Article ref={element}>
