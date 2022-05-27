@@ -5,7 +5,7 @@ Learning Resource from platzi
 
 File: index.js
 Created:  2022-05-23T15:59:08.309Z
-Modified: 2022-05-27T19:55:02.197Z
+Modified: 2022-05-27T20:20:14.015Z
 */
 
 import { ErrorMessage, Formik } from 'formik'
@@ -40,13 +40,12 @@ const useFormAnimation = () => {
 export const UserForm = ({ signin, title, invTitle, invHash, mutation }) => {
   const navigate = useNavigate()
   const [onSubmit, { loading, error, reset }] = mutation
-  console.log({ error, reset })
   const { ref, handleReset } = useFormAnimation()
   const handleSubmit = (values, { setSubmitting }) => {
     onSubmit(values).then(_ => {
       setSubmitting(false)
       navigate('/')
-    })
+    }).catch(_ => _)
   }
 
   return <Formik onReset={handleReset} initialValues={initialValues} onSubmit={handleSubmit} validationSchema={validationSchema}>

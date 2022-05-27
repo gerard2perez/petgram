@@ -6,3 +6,6 @@ copyright.notice
 
 .vercel
 stats.json
+cypress/videos
+cypress/screenshots
+cypress/fixtures
